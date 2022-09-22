@@ -177,6 +177,7 @@ searchInput.addEventListener("input", (e) => {
     console.log(element)
 })
 
+
 for(let i = 0; i < filteredArrayItem.length; i++){
     
     arrayItem.filter(title),
