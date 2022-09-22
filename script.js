@@ -169,37 +169,36 @@ chargeAllImage()
 
 
 //Créer une barre de rechercher pour filtrer les vidéos
-const searchInput = document.querySelector('#input')
+const searchInput = document.querySelector('#input');
 
 searchInput.addEventListener("input", (e) => {
     let element = e.target.value.toLowerCase();
-    const filteredArrayItem = arrayItem.filter(array => array.title.toLocaleLowerCase().includes(element))
+    const filteredArrayItem = arrayItem.filter(array => array.title.toLowerCase().includes(element))
     console.log(element)
-})
 
 
-for(let i = 0; i < filteredArrayItem.length; i++){
+    for(let i = 0; i < filteredArrayItem.length; i++){
+
+        youtubeSection.innerHTML = ""
+        youtubeSection.innerHTML +=
+        `
+        <section>
+            <div class="item-number">
+                <img class="image-item" src="${filteredArrayItem[i].image}">
+                <div class="container-logo-title">
+                    <img class="logo-chain" src="${filteredArrayItem[i].logoChain}">
+                    <p class="title">${filteredArrayItem[i].title}</p>
+                </div>
+                <div class="container-chain-stat">
+                    <p class="chain-name">${filteredArrayItem[i].chainName}</p>
+                    <p class="stat-view">${filteredArrayItem[i].statView}</p>
+                </div>
+            </div>
+        </section>
+        `
+    }
     
-    arrayItem.filter(title),
-
-    arrayItem.innerHTML +=
-    `
-    <section>
-        <div class="item-number">
-            <img class="image-item" src="${arrayItem[i].image}">
-            <div class="container-logo-title">
-                <img class="logo-chain" src="${arrayItem[i].logoChain}">
-                <p class="title">${arrayItem[i].title}</p>
-            </div>
-            <div class="container-chain-stat">
-                <p class="chain-name">${arrayItem[i].chainName}</p>
-                <p class="stat-view">${arrayItem[i].statView}</p>
-            </div>
-        </div>
-    </section>
-    `
-}
-
+})
 
 search()
 
